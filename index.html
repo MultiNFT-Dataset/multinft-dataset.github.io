@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiNFT Dataset - CIKM 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            @media (max-width: 768px) {
+                .footer-logos {
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+
+                .footer-logo {
+                    height: 50px;
+                }
+            }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Navigation */
+        header {
+            background: #ffffff;
+            padding: 1rem 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        /* Main Banner with NFT Background */
+        .main-banner {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .nft-banner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .banner-title {
+            color: white;
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .banner-subtitle {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .banner-description {
+            color: white;
+            font-size: 1.1rem;
+            max-width: 800px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        /* Title Section */
+        .main-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .main-title h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .main-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 4rem;
+            padding: 0 20px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+            border-bottom: 3px solid #e5e7eb;
+            padding-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Dataset Description */
+        .dataset-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Sample Gallery */
+        .sample-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .sample-item {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sample-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .sample-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(45deg, #e2e8f0, #cbd5e1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .download-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .download-card:hover {
+            border-color: #667eea;
+        }
+
+        .download-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+        }
+
+        /* White Background Section - University Logos and License */
+        .footer-white-section {
+            background: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 3rem 0 2rem 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* University Logos */
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Creative Commons License */
+        .footer-license {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cc-license-logo {
+            height: 31px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .license-text {
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Purple Background Section - Copyright */
+        .footer-purple-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 20px;
+            }
+
+            .project-title {
+                font-size: 1.4rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+            }
+
+            .banner-title {
+                font-size: 2.5rem;
+            }
+
+            .banner-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .banner-description {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .dataset-features {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .footer-logos {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-logo {
+                height: 60px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="project-title">MultiNFT</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#dataset">Data Description</a></li>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Banner with NFT Background -->
+    <div class="main-banner">
+        <!-- NFT Banner Image -->
+        <img src="nft-banner.jpg" alt="MultiNFT Collection Banner" class="nft-banner">
+        
+        <div class="banner-overlay">
+            <h1 class="banner-title">MultiNFT</h1>
+            <h2 class="banner-subtitle">A Comprehensive Dataset from OpenSea for NFT Price Prediction and Market Analytics</h2>
+            <p class="banner-description">Sourced from OpenSea's official API, this dataset spans four years (May 2021 - April 2025) with comprehensive transaction records across different market cycles. Features 2.38M transactions and 500K standardized assets from top PFP collections, providing authentic data for NFT research and multimodal learning applications.</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+            <h2>About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>MultiNFT is a comprehensive multimodal dataset of non-fungible tokens (NFTs), sourced from OpenSea (<a href="https://opensea.io" target="_blank" style="color: #667eea; text-decoration: none;">https://opensea.io</a>). To ensure data accuracy and consistency, the dataset is constructed using official APIs and adopts a three-stream data acquisition architecture that integrates sales records, asset metadata, and standardized image processing.</p>
+                    <br>
+                    <p>Spanning a four-year period from 1 May 2021 to 30 April 2025, MultiNFT captures 2.38M transactions involving over 500K unique NFT assets. By encompassing multiple market cycles, the dataset offers a rich foundation for research in NFT price prediction, multimodal learning, and digital asset analytics.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">2.38M</span>
+                        <span class="stat-label">Transactions</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">0.50M</span>
+                        <span class="stat-label">NFT Assets</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">50</span>
+                        <span class="stat-label">PFP Collections</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">4 Years</span>
+                        <span class="stat-label">Time Span</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Dataset Description -->
+        <section id="dataset" class="section">
+            <div class="container">
+            <h2>Dataset Description</h2>
+            
+            <div class="dataset-features">
+                <div class="feature-card">
+                    <h3>💰 Sales Data Collection</h3>
+                    <p>Four years of detailed transaction records, spanning from 1 May 2021 to 30 April 2025. Each entry includes key market information such as timestamps, payment tokens, sale prices, and buyer/seller addresses. The dataset reflects a range of market conditions across multiple cycles, enabling comprehensive analysis of trading behaviour and pricing dynamics.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Asset Metadata Extraction</h3>
+                    <p>Detailed metadata for all assets within selected collections, emphasizing comprehensive attribute information with trait types and values for rarity analysis and market valuation studies.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🖼️ Image Data Acquisition</h3>
+                    <p>Systematic downloading of asset images via metadata URLs, followed by standardization processing to 224×224 pixel RGB PNG format ensuring consistency for computer vision applications.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 Three-Stream Architecture</h3>
+                    <p>Integrated data acquisition system combining sales data collection, metadata extraction, and image processing workflows for comprehensive multimodal NFT dataset construction.</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 2rem 0 1rem 0; color: #667eea;">Sample Gallery</h3>
+            <div class="sample-gallery" id="sampleGallery">
+                <div class="sample-item">
+                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                    <h4>CryptoPunks</h4>
+                    <p>Assets: 10,000</p>
+                </div>
+                <div class="sample-item">
+                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                    <h4>Bored Ape Yacht Club</h4>
+                    <p>Assets: 10,000</p>
+                </div>
+                <div class="sample-item">
+                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                    <h4>Azuki</h4>
+                    <p>Assets: 10,000</p>
+                </div>
+                <div class="sample-item">
+                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                    <h4>Mutant Ape Yacht Club</h4>
+                    <p>Assets: 19,423</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="section">
+            <div class="container">
+            <h2>Download</h2>
+            
+            <div class="download-grid">
+                <div class="download-card">
+                    <h3>Sales Data Collection</h3>
+                    <p>Four years of transaction records (May 2021 - April 2025) with timestamps, payment tokens, and trader addresses.</p>
+                    <p><strong>Format:</strong> CSV/JSON</p>
+                    <a href="#" class="btn">Download Sales Data</a>
+                </div>
+                <div class="download-card">
+                    <h3>Asset Metadata</h3>
+                    <p>Comprehensive attribute information with trait types and values for rarity analysis and market valuation.</p>
+                    <p><strong>Format:</strong> JSON</p>
+                    <a href="#" class="btn">Download Metadata</a>
+                </div>
+                <div class="download-card">
+                    <h3>Standardized Images</h3>
+                    <p>500K asset images processed to 224×224 pixel RGB PNG format for computer vision applications.</p>
+                    <p><strong>Format:</strong> PNG (224×224)</p>
+                    <a href="#" class="btn">Download Images</a>
+                </div>
+                <div class="download-card">
+                    <h3>Complete Dataset</h3>
+                    <p>Full three-stream architecture data package with sales, metadata, and standardized image data.</p>
+                    <p><strong>Period:</strong> 4 Years</p>
+                    <a href="#" class="btn">Download Complete</a>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+            <h2>Contact</h2>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>About Us</h3>
+                    <p><strong>Shuying Liu</strong></p>
+                    <p>Email: 2595459L@student.gla.ac.uk</p>
+                    <br>
+                    <p><strong>Bowei Chen</strong></p>
+                    <p>Email: bowei.chen@glasgow.ac.uk</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Research Institution</h3>
+                    <p><strong>Adam Smith Business School</strong></p>
+                    <p>University of Glasgow</p>
+                    <br>
+                    <p><strong>School of Finance</strong></p>
+                    <p>Southwest University of Finance and Economics</p>
+                </div>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 2rem; border-radius: 10px; border-left: 4px solid #0ea5e9; margin-top: 2rem;">
+                <p><strong>Terms of Use:</strong> This dataset is for academic research and non-commercial use only. When publishing research results using this dataset, please cite the original paper.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- White Background Section - University Logos and License -->
+        <div class="footer-white-section">
+            <div class="container">
+                <!-- University Logos -->
+                <div class="footer-logos">
+                    <!-- University of Glasgow Logo -->
+                    <img src="images/uog.png" alt="University of Glasgow" class="footer-logo">
+                    
+                    <!-- Southwestern University of Finance and Economics Logo -->
+                    <img src="images/southwestern university of finance and economics_logo.png" alt="Southwestern University of Finance and Economics" class="footer-logo">
+                </div>
+
+                <!-- Creative Commons License -->
+                <div class="footer-license">
+                    <!-- CC BY-NC 4.0 Logo from official source -->
+                    <img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Creative Commons BY-NC 4.0" class="cc-license-logo">
+                    
+                    <p class="license-text">
+                        This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purple Background Section - Copyright -->
+        <div class="footer-purple-section">
+            <div class="container">
+                <p>&copy; 2025 MultiNFT Dataset. For academic research purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            const sampleItems = document.querySelectorAll('.sample-placeholder');
+            setTimeout(() => {
+                sampleItems.forEach((item, index) => {
+                    const collections = ['CryptoPunks', 'BAYC', 'Azuki', 'MAYC'];
+                    item.innerHTML = `${collections[index]}<br><small>PFP Collection</small>`;
+                    item.style.background = `linear-gradient(45deg, hsl(${index * 60}, 70%, 85%), hsl(${index * 60 + 30}, 70%, 75%))`;
+                });
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
