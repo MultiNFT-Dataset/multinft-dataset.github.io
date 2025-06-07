@@ -9,16 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            @media (max-width: 768px) {
-                .footer-logos {
-                    flex-direction: column;
-                    gap: 1.5rem;
-                }
-
-                .footer-logo {
-                    height: 50px;
-                }
-            }
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -136,25 +127,6 @@
             padding: 3rem 0;
         }
 
-        /* Title Section */
-        .main-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .main-title h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .main-title p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
         /* Section Styling */
         .section {
             margin-bottom: 4rem;
@@ -209,27 +181,6 @@
             opacity: 0.9;
         }
 
-        /* Dataset Description */
-        .dataset-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .feature-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
         /* Sample Gallery */
         .sample-gallery {
             display: grid;
@@ -263,6 +214,167 @@
             margin-bottom: 1rem;
             color: #64748b;
             font-weight: 500;
+        }
+
+        /* Dataset Description */
+        .dataset-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Subsection Styling */
+        .subsection {
+            margin: 3rem 0;
+        }
+
+        .subsection h3 {
+            margin: 2rem 0 1rem 0; 
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Accordion Styling */
+        .accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+            background: white;
+        }
+
+        .accordion-header {
+            background: #f8fafc;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #f1f5f9;
+        }
+
+        .accordion-header h4 {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .accordion-toggle {
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 0;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        /* Variable Table Styling */
+        .variable-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .variable-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .variable-table th:first-child {
+            width: 20%;
+        }
+
+        .variable-table th:nth-child(2) {
+            width: 12%;
+        }
+
+        .variable-table th:nth-child(3) {
+            width: 40%;
+        }
+
+        .variable-table th:nth-child(4) {
+            width: 28%;
+        }
+
+        .variable-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+        }
+
+        .variable-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .variable-table tbody tr:hover {
+            background: #f1f5f9;
+        }
+
+        /* Nested row styling */
+        .nested-row {
+            background: #f8fafc !important;
+        }
+
+        .nested-row:hover {
+            background: #f1f5f9 !important;
+        }
+
+        .variable-name {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .data-type {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            color: #059669;
+            font-size: 0.85rem;
+            background: #ecfdf5;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .description {
+            color: #374151;
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
 
         /* Download Section */
@@ -395,6 +507,22 @@
             padding: 2rem 0;
         }
 
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -447,22 +575,6 @@
                 height: 60px;
             }
         }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body>
@@ -497,145 +609,716 @@
         <!-- About Section -->
         <section id="about" class="section">
             <div class="container">
-            <h2>About</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>MultiNFT is a comprehensive multimodal dataset of non-fungible tokens (NFTs), sourced from <a href="https://opensea.io" target="_blank" style="color: #667eea; text-decoration: none;">OpenSea</a>. To ensure data accuracy and consistency, the dataset is constructed using official APIs and adopts a three-stream data acquisition architecture that integrates sales records, asset metadata, and standardized image processing.</p>
-                    <br>
-                    <p>Spanning a four-year period from 1 May 2021 to 30 April 2025, MultiNFT captures 2.38M transactions involving over 500K unique NFT assets. By encompassing multiple market cycles, the dataset offers a rich foundation for research in NFT price prediction, multimodal learning, and digital asset analytics.</p>
+                <h2>About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>MultiNFT is a comprehensive multimodal dataset of non-fungible tokens (NFTs), sourced from <a href="https://opensea.io" target="_blank" style="color: #667eea; text-decoration: none;">OpenSea</a>. To ensure data accuracy and consistency, the dataset is constructed using official APIs and adopts a three-stream data acquisition architecture that integrates sales records, asset metadata, and standardized image processing.</p>
+                        <br>
+                        <p>Spanning a four-year period from 1 May 2021 to 30 April 2025, MultiNFT captures 2.38M transactions involving over 500K unique NFT assets. By encompassing multiple market cycles, the dataset offers a rich foundation for research in NFT price prediction, multimodal learning, and digital asset analytics.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">2.38M</span>
+                            <span class="stat-label">Transactions</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">0.50M</span>
+                            <span class="stat-label">NFT Assets</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">50</span>
+                            <span class="stat-label">PFP Collections</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">4 Years</span>
+                            <span class="stat-label">Time Span</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-box">
-                        <span class="stat-number">2.38M</span>
-                        <span class="stat-label">Transactions</span>
+
+                <h3 style="margin: 2rem 0 1rem 0; color: #667eea;">Sample Gallery</h3>
+                <div class="sample-gallery" id="sampleGallery">
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>CryptoPunks</h4>
+                        <p>Assets: 10,000</p>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">0.50M</span>
-                        <span class="stat-label">NFT Assets</span>
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>Bored Ape Yacht Club</h4>
+                        <p>Assets: 10,000</p>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">50</span>
-                        <span class="stat-label">PFP Collections</span>
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>Azuki</h4>
+                        <p>Assets: 10,000</p>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">4 Years</span>
-                        <span class="stat-label">Time Span</span>
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>Mutant Ape Yacht Club</h4>
+                        <p>Assets: 19,423</p>
                     </div>
                 </div>
-            </div>
-            </div>
             </div>
         </section>
 
         <!-- Dataset Description -->
         <section id="dataset" class="section">
             <div class="container">
-            <h2>Dataset Description</h2>
-            
-            <div class="dataset-features">
-                <div class="feature-card">
-                    <h3>💰 Sales Data Collection</h3>
-                    <p>Four years of detailed transaction records, spanning from 1 May 2021 to 30 April 2025. Each entry includes key market information such as timestamps, payment tokens, sale prices, and buyer/seller addresses. The dataset reflects a range of market conditions across multiple cycles, enabling comprehensive analysis of trading behaviour and pricing dynamics.</p>
+                <h2>Dataset Description</h2>
+                
+                <div class="dataset-features">
+                    <div class="feature-card">
+                        <h3>📊 50 PFP Collections and Assets Tables</h3>
+                        <p>Comprehensive collection metadata and individual asset information for 50 carefully selected Profile Picture (PFP) collections, including detailed attributes, contract information, and asset-level data.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🏷️ Attributes</h3>
+                        <p>Detailed trait and attribute data for each NFT asset, including rarity information, trait types, and values essential for market analysis and valuation studies.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🖼️ Images</h3>
+                        <p>Systematic downloading of asset images via metadata URLs, followed by standardization processing to 224×224 pixel RGB PNG format ensuring consistency for computer vision applications.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💰 Sales</h3>
+                        <p>Four years of detailed transaction records with comprehensive market information including timestamps, payment tokens, sale prices, and trading party addresses across multiple market cycles.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>📊 Asset Metadata Extraction</h3>
-                    <p>Detailed metadata for all assets within selected collections, emphasizing comprehensive attribute information with trait types and values for rarity analysis and market valuation studies.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🖼️ Image Data Acquisition</h3>
-                    <p>Systematic downloading of asset images via metadata URLs, followed by standardization processing to 224×224 pixel RGB PNG format ensuring consistency for computer vision applications.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🔄 Three-Stream Architecture</h3>
-                    <p>Integrated data acquisition system combining sales data collection, metadata extraction, and image processing workflows for comprehensive multimodal NFT dataset construction.</p>
-                </div>
-            </div>
 
-            <h3 style="margin: 2rem 0 1rem 0; color: #667eea;">Sample Gallery</h3>
-            <div class="sample-gallery" id="sampleGallery">
-                <div class="sample-item">
-                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                    <h4>CryptoPunks</h4>
-                    <p>Assets: 10,000</p>
+                <!-- Subsection 1: 50 PFP Collections and Assets Tables -->
+                <div class="subsection">
+                    <h3>50 PFP Collections and Assets Tables</h3>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion('collections-accordion')">
+                            <h4>Collections Table</h4>
+                            <span class="accordion-toggle" id="collections-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content" id="collections-accordion">
+                            <table class="variable-table">
+                                <thead>
+                                    <tr>
+                                        <th>Variable Name</th>
+                                        <th>Data Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="variable-name">collection</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Collection slug. A unique string to identify a collection on OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">name</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Name of the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">description</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Description of the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">image_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Square image used to represent the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">banner_image_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Banner image used to represent the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">owner</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The public blockchain address of the owner</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">safelist_status</span></td>
+                                        <td><span class="data-type">object</span></td>
+                                        <td><span class="description">Status of the collection verification requests. Options: not_requested, requested, approved, verified, disabled_top_trending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">category</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Category of the collection (e.g. PFPs, Memberships, Art)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">is_disabled</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If the collection is currently able to be bought or sold using OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">is_nsfw</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If the collection is currently classified as 'Not Safe for Work' as defined in OpenSea's NSFW Policy</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">trait_offers_enabled</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If trait offers are currently being accepted for the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">collection_offers_enabled</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If collection offers are currently being accepted for the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">opensea_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">OpenSea Link to collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">project_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">External URL for the collection's website</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">wiki_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">External URL for the collection's wiki</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">discord_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">External URL for the collection's Discord server</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">telegram_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">External URL for the collection's Telegram group</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">twitter_username</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Username for the collection's Twitter account</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">instagram_username</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Username for the collection's Instagram account</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="variable-name">contracts</span>
+                                            <button onclick="toggleNestedRows('contracts')" style="background: #667eea; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.7rem; cursor: pointer; margin-left: 0.5rem;">▼</button>
+                                        </td>
+                                        <td><span class="data-type">array</span></td>
+                                        <td><span class="description">Contracts for the collection</span></td>
+                                    </tr>
+                                    <tr class="nested-row contracts-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── address</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The public blockchain address of the contract</span></td>
+                                    </tr>
+                                    <tr class="nested-row contracts-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">└── chain</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">OpenSea supported chains</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">editors</span></td>
+                                        <td><span class="data-type">array</span></td>
+                                        <td><span class="description">List of editor addresses for the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="variable-name">fees</span>
+                                            <button onclick="toggleNestedRows('fees')" style="background: #667eea; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.7rem; cursor: pointer; margin-left: 0.5rem;">▼</button>
+                                        </td>
+                                        <td><span class="data-type">array</span></td>
+                                        <td><span class="description">List of fees for the collection including creator earnings and OpenSea fees</span></td>
+                                    </tr>
+                                    <tr class="nested-row fees-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── fee</span></td>
+                                        <td><span class="data-type">number</span></td>
+                                        <td><span class="description">Percentage of the sale price that is paid to the recipient</span></td>
+                                    </tr>
+                                    <tr class="nested-row fees-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── recipient</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The public blockchain address of the recipient</span></td>
+                                    </tr>
+                                    <tr class="nested-row fees-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">└── required</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If the fee is required for the collection (defaults to false)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">required_zone</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">If defined, the required zone for all orders for this collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="variable-name">rarity</span>
+                                            <button onclick="toggleNestedRows('rarity')" style="background: #667eea; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.7rem; cursor: pointer; margin-left: 0.5rem;">▼</button>
+                                        </td>
+                                        <td><span class="data-type">object</span></td>
+                                        <td><span class="description">Rarity data for the Collection</span></td>
+                                    </tr>
+                                    <tr class="nested-row rarity-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── strategy_id</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Rarity algorithm used. Currently, always 'openrarity'</span></td>
+                                    </tr>
+                                    <tr class="nested-row rarity-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── strategy_version</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Version of the rarity algorithm used</span></td>
+                                    </tr>
+                                    <tr class="nested-row rarity-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── calculated_at</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Isoformat datetime when the rarity was calculated</span></td>
+                                    </tr>
+                                    <tr class="nested-row rarity-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── max_rank</span></td>
+                                        <td><span class="data-type">integer</span></td>
+                                        <td><span class="description">Maximum possible rank for the collection</span></td>
+                                    </tr>
+                                    <tr class="nested-row rarity-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">└── total_supply</span></td>
+                                        <td><span class="data-type">integer</span></td>
+                                        <td><span class="description">Total number of tokens scored in the collection</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="variable-name">payment_tokens</span>
+                                            <button onclick="toggleNestedRows('payment_tokens')" style="background: #667eea; color: white; border: none; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.7rem; cursor: pointer; margin-left: 0.5rem;">▼</button>
+                                        </td>
+                                        <td><span class="data-type">array</span></td>
+                                        <td><span class="description">Payment tokens for the collection</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── symbol</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The symbol of the payment token</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── address</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The public blockchain address of the contract</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── chain</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The chain on which the contract exists</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── image</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The image of the payment token</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── name</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The name of the contract</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── decimals</span></td>
+                                        <td><span class="data-type">integer</span></td>
+                                        <td><span class="description">The number of decimals of the contract</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">├── eth_price</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The price of the payment token in ETH</span></td>
+                                    </tr>
+                                    <tr class="nested-row payment_tokens-nested" style="display: none;">
+                                        <td style="padding-left: 2rem;"><span class="variable-name">└── usd_price</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The price of the payment token in USD</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">total_supply</span></td>
+                                        <td><span class="data-type">integer</span></td>
+                                        <td><span class="description">The total supply of the collection (minted minus burned)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">created_date</span></td>
+                                        <td><span class="data-type">date</span></td>
+                                        <td><span class="description">The date the collection was created</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion('assets-accordion')">
+                            <h4>NFT Assets Table</h4>
+                            <span class="accordion-toggle" id="assets-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content" id="assets-accordion">
+                            <table class="variable-table">
+                                <thead>
+                                    <tr>
+                                        <th>Variable Name</th>
+                                        <th>Data Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="variable-name">identifier</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The NFT's unique identifier within the smart contract (also referred to as token_id)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">collection</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Collection slug. A unique string to identify a collection on OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">contract</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The public blockchain address of the contract</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">token_standard</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">ERC standard of the token (erc721, erc1155)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">name</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Name of the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">description</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Description of the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">image_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to the image associated with the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">display_image_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to the image that is display on the OpenSea website</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">display_animation_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to the animation that is display on the OpenSea website</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">metadata_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to the offchain metadata store</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">opensea_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to the NFT on OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">updated_at</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Last time that the NFT's metadata was updated by OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">is_disabled</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If the item is currently able to be bought or sold using OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">is_nsfw</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If the item is currently classified as 'Not Safe for Work' by OpenSea as defined in OpenSea's NSFW Policy</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="sample-item">
-                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                    <h4>Bored Ape Yacht Club</h4>
-                    <p>Assets: 10,000</p>
+
+                <!-- Subsection 2: Attributes -->
+                <div class="subsection">
+                    <h3>Attributes</h3>
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6;">Detailed attribute and trait information for each NFT asset will be documented here, including rarity calculations and trait distributions.</p>
                 </div>
-                <div class="sample-item">
-                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                    <h4>Azuki</h4>
-                    <p>Assets: 10,000</p>
+
+                <!-- Subsection 3: Images -->
+                <div class="subsection">
+                    <h3>Images</h3>
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6;">Comprehensive documentation of image processing pipeline and standardization procedures will be provided here.</p>
                 </div>
-                <div class="sample-item">
-                    <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                    <h4>Mutant Ape Yacht Club</h4>
-                    <p>Assets: 19,423</p>
+
+                <!-- Subsection 4: Sales -->
+                <div class="subsection">
+                    <h3>Sales</h3>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion('raw-sales-accordion')">
+                            <h4>Raw Sales Table</h4>
+                            <span class="accordion-toggle" id="raw-sales-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content" id="raw-sales-accordion">
+                            <table class="variable-table">
+                                <thead>
+                                    <tr>
+                                        <th>Variable Name</th>
+                                        <th>Data Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="variable-name">event_type</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Defaults to 'sale'</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">order_hash</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Order hash for the order which was fulfilled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">chain</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">OpenSea supported chains</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">protocol_address</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Exchange contract address which fulfilled the order</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">closing_date</span></td>
+                                        <td><span class="data-type">datetime</span></td>
+                                        <td><span class="description">Posix timestamp converted to datetime</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_identifier</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">The NFT's unique identifier (token_id)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_collection</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Collection slug</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_contract</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Public blockchain address of the contract</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_token_standard</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">ERC standard (erc721, erc1155)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_name</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Name of the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_description</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Description of the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_image_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to the image</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_display_image_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to displayed image</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_display_animation_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to displayed animation</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_metadata_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to offchain metadata</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_opensea_url</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Link to NFT on OpenSea</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_updated_at</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Last metadata update time</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_is_disabled</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If item can be bought/sold</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">nft_is_nsfw</span></td>
+                                        <td><span class="data-type">boolean</span></td>
+                                        <td><span class="description">If classified as NSFW</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">quantity</span></td>
+                                        <td><span class="data-type">integer</span></td>
+                                        <td><span class="description">Number of assets transferred</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">seller</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Seller of the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">buyer</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Buyer of the NFT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">payment_quantity</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Amount of tokens in the order</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">payment_token_address</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Contract address for ERC20 token</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">payment_decimals</span></td>
+                                        <td><span class="data-type">integer</span></td>
+                                        <td><span class="description">Number of decimals the token uses</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">payment_symbol</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Symbol of the token (ETH, WETH, etc.)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">transaction</span></td>
+                                        <td><span class="data-type">string</span></td>
+                                        <td><span class="description">Transaction hash</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">event_timestamp</span></td>
+                                        <td><span class="data-type">datetime</span></td>
+                                        <td><span class="description">Posix timestamp converted to datetime</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion('cleaned-sales-accordion')">
+                            <h4>Cleaned Sales Table (Added Variables)</h4>
+                            <span class="accordion-toggle" id="cleaned-sales-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content" id="cleaned-sales-accordion">
+                            <table class="variable-table">
+                                <thead>
+                                    <tr>
+                                        <th>Variable Name</th>
+                                        <th>Data Type</th>
+                                        <th>Description</th>
+                                        <th>Calculation/Source</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="variable-name">eth_usd_price</span></td>
+                                        <td><span class="data-type">float</span></td>
+                                        <td><span class="description">ETH to USD exchange rate on transaction date</span></td>
+                                        <td><span class="description">External market data (daily close price)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">payment_price</span></td>
+                                        <td><span class="data-type">float</span></td>
+                                        <td><span class="description">Actual payment amount (quantity ÷ 10^decimals)</span></td>
+                                        <td><span class="description">payment_quantity ÷ (10^payment_decimals)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">payment_usd_price</span></td>
+                                        <td><span class="data-type">float</span></td>
+                                        <td><span class="description">Payment amount converted to USD</span></td>
+                                        <td>
+                                            <span class="description">
+                                                <strong>ETH/WETH:</strong> payment_price × eth_usd_price<br>
+                                                <strong>USDC/DAI:</strong> payment_price × 1.0
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="variable-name">log_usd_price</span></td>
+                                        <td><span class="data-type">float</span></td>
+                                        <td><span class="description">Natural logarithm of USD price</span></td>
+                                        <td><span class="description">ln(payment_usd_price)</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
 
         <!-- Download Section -->
         <section id="download" class="section">
             <div class="container">
-            <h2>Download</h2>
-            
-            <div class="download-grid">
-                <div class="download-card">
-                    <h3>Sales Data Collection</h3>
-                    <p>Four years of transaction records (May 2021 - April 2025) with timestamps, payment tokens, and trader addresses.</p>
-                    <p><strong>Format:</strong> CSV/JSON</p>
-                    <a href="#" class="btn">Download Sales Data</a>
+                <h2>Download</h2>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <h3>Sales Data Collection</h3>
+                        <p>Four years of transaction records (May 2021 - April 2025) with timestamps, payment tokens, and trader addresses.</p>
+                        <p><strong>Format:</strong> CSV/JSON</p>
+                        <a href="#" class="btn">Download Sales Data</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Asset Metadata</h3>
+                        <p>Comprehensive attribute information with trait types and values for rarity analysis and market valuation.</p>
+                        <p><strong>Format:</strong> JSON</p>
+                        <a href="#" class="btn">Download Metadata</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Standardized Images</h3>
+                        <p>500K asset images processed to 224×224 pixel RGB PNG format for computer vision applications.</p>
+                        <p><strong>Format:</strong> PNG (224×224)</p>
+                        <a href="#" class="btn">Download Images</a>
+                    </div>
+                    <div class="download-card">
+                        <h3>Complete Dataset</h3>
+                        <p>Full three-stream architecture data package with sales, metadata, and standardized image data.</p>
+                        <p><strong>Period:</strong> 4 Years</p>
+                        <a href="#" class="btn">Download Complete</a>
+                    </div>
                 </div>
-                <div class="download-card">
-                    <h3>Asset Metadata</h3>
-                    <p>Comprehensive attribute information with trait types and values for rarity analysis and market valuation.</p>
-                    <p><strong>Format:</strong> JSON</p>
-                    <a href="#" class="btn">Download Metadata</a>
-                </div>
-                <div class="download-card">
-                    <h3>Standardized Images</h3>
-                    <p>500K asset images processed to 224×224 pixel RGB PNG format for computer vision applications.</p>
-                    <p><strong>Format:</strong> PNG (224×224)</p>
-                    <a href="#" class="btn">Download Images</a>
-                </div>
-                <div class="download-card">
-                    <h3>Complete Dataset</h3>
-                    <p>Full three-stream architecture data package with sales, metadata, and standardized image data.</p>
-                    <p><strong>Period:</strong> 4 Years</p>
-                    <a href="#" class="btn">Download Complete</a>
-                </div>
-            </div>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="section">
             <div class="container">
-            <h2>Contact</h2>
-            
-            <div class="contact-info">
-                <div class="contact-card">
-                    <p><strong>Shuying Liu</strong></p>
-                    <p><a href="mailto:2595459L@student.gla.ac.uk" target="_blank" style="color: #667eea; text-decoration: none;">2595459L@student.gla.ac.uk</a></p>
-                    <br>
-                    <p><strong>Bowei Chen</strong></p>
-                    <p><a href="mailto:bowei.chen@glasgow.ac.uk" target="_blank" style="color: #667eea; text-decoration: none;">bowei.chen@glasgow.ac.uk</a></p>
+                <h2>Contact</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <p><strong>Shuying Liu</strong></p>
+                        <p><a href="mailto:2595459L@student.gla.ac.uk" target="_blank" style="color: #667eea; text-decoration: none;">2595459L@student.gla.ac.uk</a></p>
+                        <br>
+                        <p><strong>Bowei Chen</strong></p>
+                        <p><a href="mailto:bowei.chen@glasgow.ac.uk" target="_blank" style="color: #667eea; text-decoration: none;">bowei.chen@glasgow.ac.uk</a></p>
+                    </div>
                 </div>
-                <!-- <div class="contact-card">
-                    <h3>Research Institution</h3>
-                    <p><strong>Adam Smith Business School</strong></p>
-                    <p>University of Glasgow</p>
-                    <br>
-                    <p><strong>School of Finance</strong></p>
-                    <p>Southwest University of Finance and Economics</p>
-                </div> -->
-            </div>
 
-            <div style="background: #f0f9ff; padding: 2rem; border-radius: 10px; border-left: 4px solid #0ea5e9; margin-top: 2rem;">
-                <p>This dataset is for academic research and non-commercial use only. When publishing research results using this dataset, please cite the our paper.</p>
+                <div style="background: #f0f9ff; padding: 2rem; border-radius: 10px; border-left: 4px solid #0ea5e9; margin-top: 2rem;">
+                    <p>This dataset is for academic research and non-commercial use only. When publishing research results using this dataset, please cite the our paper.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -697,6 +1380,45 @@
                 });
             }, 2000);
         });
+
+        // Accordion toggle function
+        function toggleAccordion(accordionId) {
+            const content = document.getElementById(accordionId);
+            const toggle = document.getElementById(accordionId.replace('-accordion', '-toggle'));
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                toggle.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                toggle.classList.add('active');
+            }
+        }
+
+        // Nested table toggle function
+        function toggleNestedRows(groupName) {
+            const nestedRows = document.querySelectorAll(`.${groupName}-nested`);
+            const button = event.target;
+            
+            let isVisible = false;
+            nestedRows.forEach(row => {
+                if (row.style.display !== 'none') {
+                    isVisible = true;
+                }
+            });
+            
+            if (isVisible) {
+                nestedRows.forEach(row => {
+                    row.style.display = 'none';
+                });
+                button.innerHTML = '▼';
+            } else {
+                nestedRows.forEach(row => {
+                    row.style.display = 'table-row';
+                });
+                button.innerHTML = '▲';
+            }
+        }
     </script>
 </body>
 </html>
