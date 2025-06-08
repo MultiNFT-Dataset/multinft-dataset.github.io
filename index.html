@@ -1295,31 +1295,60 @@
         <section id="download" class="section">
             <div class="container">
                 <h2>Download</h2>
+                <div class="zenodo-note">
+                    Dataset hosted on <a href="https://doi.org/10.5281/zenodo.15611822" target="_blank">Zenodo</a>. 
+                    Click individual files to download directly, or visit the complete dataset page for detailed information and citations.
+                </div>
                 
                 <div class="download-grid">
                     <div class="download-card">
-                        <h3>Sales Data Collection</h3>
-                        <p>Four years of transaction records (May 2021 - April 2025) with timestamps, payment tokens, and trader addresses.</p>
-                        <p><strong>Format:</strong> CSV/JSON</p>
-                        <a href="#" class="btn">Download Sales Data</a>
+                        <h3>Collections & Assets Data</h3>
+                        <p>50个PFP集合的基础信息和523,020个NFT资产元数据</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <a href="https://zenodo.org/record/15611823/files/collections.csv" target="_blank" class="file-download-btn">
+                                <span><span class="file-icon">📄</span>collections.csv</span>
+                                <span class="download-icon">⬇</span>
+                            </a>
+                            <a href="https://zenodo.org/record/15611823/files/assets.csv" target="_blank" class="file-download-btn">
+                                <span><span class="file-icon">📄</span>assets.csv</span>
+                                <span class="download-icon">⬇</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="download-card">
-                        <h3>Asset Metadata</h3>
-                        <p>Comprehensive attribute information with trait types and values for rarity analysis and market valuation.</p>
-                        <p><strong>Format:</strong> JSON</p>
-                        <a href="#" class="btn">Download Metadata</a>
+                        <h3>Sales Data</h3>
+                        <p>4年交易记录（原始+清洗后）数据</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <a href="https://zenodo.org/record/15611823/files/sales_raw.csv" target="_blank" class="file-download-btn">
+                                <span><span class="file-icon">📊</span>sales_raw.csv</span>
+                                <span class="download-icon">⬇</span>
+                            </a>
+                            <a href="https://zenodo.org/record/15611823/files/sales_cleaned.csv" target="_blank" class="file-download-btn">
+                                <span><span class="file-icon">📊</span>sales_cleaned.csv</span>
+                                <span class="download-icon">⬇</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="download-card">
-                        <h3>Standardized Images</h3>
-                        <p>500K asset images processed to 224×224 pixel RGB PNG format for computer vision applications.</p>
-                        <p><strong>Format:</strong> PNG (224×224)</p>
-                        <a href="#" class="btn">Download Images</a>
+                        <h3>Images & Attributes</h3>
+                        <p>523,020张标准化图像(224×224 PNG)和对应的属性元数据</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <a href="https://zenodo.org/record/15611823/files/images.zip" target="_blank" class="file-download-btn">
+                                <span><span class="file-icon">🖼️</span>images.zip</span>
+                                <span class="download-icon">⬇</span>
+                            </a>
+                            <a href="https://zenodo.org/record/15611823/files/attributes.zip" target="_blank" class="file-download-btn">
+                                <span><span class="file-icon">📋</span>attributes.zip</span>
+                                <span class="download-icon">⬇</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="download-card">
                         <h3>Complete Dataset</h3>
-                        <p>Full three-stream architecture data package with sales, metadata, and standardized image data.</p>
-                        <p><strong>Period:</strong> 4 Years</p>
-                        <a href="#" class="btn">Download Complete</a>
+                        <p>MultiNFT完整数据包，包含所有文件和详细文档</p>
+                        <a href="https://doi.org/10.5281/zenodo.15611822" target="_blank" class="btn">
+                            访问 Zenodo 完整数据集
+                        </a>
                     </div>
                 </div>
             </div>
