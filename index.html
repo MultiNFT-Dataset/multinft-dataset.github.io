@@ -181,29 +181,12 @@
             opacity: 0.9;
         }
 
-        /* Updated Sample Gallery */
-        .gallery-container {
-            position: relative;
-            margin: 2rem 0;
-        }
-
-        .gallery-wrapper {
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
+        /* Sample Gallery */
         .sample-gallery {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            transition: transform 0.5s ease;
-            padding: 0.5rem;
-        }
-
-        .gallery-group {
-            display: flex;
-            gap: 1.5rem;
-            min-width: 100%;
-            flex-shrink: 0;
+            margin: 2rem 0;
         }
 
         .sample-item {
@@ -211,18 +194,13 @@
             border-radius: 10px;
             padding: 1rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             cursor: pointer;
-            flex: 1;
-            min-width: 200px;
-            text-decoration: none;
-            color: inherit;
         }
 
         .sample-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
-            border: 2px solid #667eea;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .sample-placeholder {
@@ -236,68 +214,296 @@
             margin-bottom: 1rem;
             color: #64748b;
             font-weight: 500;
-            flex-direction: column;
         }
 
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(102, 126, 234, 0.9);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        /* Dataset Description */
+        .dataset-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Subsection Styling */
+        .subsection {
+            margin: 3rem 0;
+        }
+
+        .subsection h3 {
+            margin: 2rem 0 1rem 0; 
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Accordion Styling */
+        .accordion {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+            background: white;
+        }
+
+        .accordion-header {
+            background: #f8fafc;
+            padding: 1.5rem 2rem;
             cursor: pointer;
-            font-size: 1.2rem;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.3s ease;
         }
 
-        .gallery-nav.prev {
-            left: -25px;
+        .accordion-header:hover {
+            background: #f1f5f9;
         }
 
-        .gallery-nav.next {
-            right: -25px;
+        .accordion-header h4 {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
         }
 
-        .gallery-nav:disabled {
-            background: rgba(102, 126, 234, 0.3);
-            cursor: not-allowed;
-            transform: translateY(-50%) scale(1);
+        .accordion-toggle {
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
         }
 
-        .gallery-nav:hover {
-            background: rgba(102, 126, 234, 1);
-            transform: translateY(-50%) scale(1.1);
+        .accordion-toggle.active {
+            transform: rotate(180deg);
         }
 
-        .gallery-indicators {
+        .accordion-content {
+            display: none;
+            padding: 0;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        /* Variable Table Styling */
+        .variable-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .variable-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .variable-table th:first-child {
+            width: 20%;
+        }
+
+        .variable-table th:nth-child(2) {
+            width: 12%;
+        }
+
+        .variable-table th:nth-child(3) {
+            width: 68%;
+        }
+
+        .variable-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+        }
+
+        .variable-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .variable-table tbody tr:hover {
+            background: #f1f5f9;
+        }
+
+        /* Nested row styling */
+        .nested-row {
+            background: #f8fafc !important;
+        }
+
+        .nested-row:hover {
+            background: #f1f5f9 !important;
+        }
+
+        .variable-name {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .data-type {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            color: #059669;
+            font-size: 0.85rem;
+            background: #ecfdf5;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .description {
+            color: #374151;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .download-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .download-card:hover {
+            border-color: #667eea;
+        }
+
+        .download-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+        }
+
+        /* White Background Section - University Logos and License */
+        .footer-white-section {
+            background: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 3rem 0 2rem 0;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* University Logos */
+        .footer-logos {
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #e5e7eb;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.3s ease;
         }
 
-        .indicator.active {
-            background: #667eea;
-            transform: scale(1.2);
+        .footer-logo:hover {
+            transform: scale(1.05);
         }
 
+        /* Creative Commons License */
+        .footer-license {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cc-license-logo {
+            height: 31px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .license-text {
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* Purple Background Section - Copyright */
+        .footer-purple-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Loading Animation */
         .loading {
             display: inline-block;
             width: 20px;
@@ -306,7 +512,6 @@
             border-top: 3px solid #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-top: 0.5rem;
         }
 
         @keyframes spin {
@@ -314,30 +519,58 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 20px;
+            }
+
+            .project-title {
+                font-size: 1.4rem;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+            }
+
+            .banner-title {
+                font-size: 2.5rem;
+            }
+
+            .banner-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .banner-description {
+                font-size: 1rem;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
             }
+
             .about-stats {
                 grid-template-columns: 1fr;
             }
-            .gallery-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+
+            .dataset-features {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
             }
-            .gallery-nav.prev {
-                left: -20px;
+
+            .footer-logos {
+                flex-direction: column;
+                gap: 2rem;
             }
-            .gallery-nav.next {
-                right: -20px;
-            }
-            .sample-item {
-                min-width: 150px;
+
+            .footer-logo {
+                height: 60px;
             }
         }
-
-        /* Dataset Description and beyond remain unchanged... */
     </style>
 </head>
 <body>
@@ -358,7 +591,9 @@
 
     <!-- Main Banner with NFT Background -->
     <div class="main-banner">
+        <!-- NFT Banner Image -->
         <img src="images/nft-banner.png" alt="MultiNFT Collection Banner" class="nft-banner">
+        
         <div class="banner-overlay">
             <h1 class="banner-title">MultiNFT</h1>
             <h2 class="banner-subtitle">A Comprehensive Multimodal Dataset for NFT Price Prediction and Market Analytics</h2>
@@ -395,122 +630,32 @@
                             <span class="stat-label">Time Span</span>
                         </div>
                     </div>
+                </div>
 
-                    <h3 style="margin: 2rem 0 1rem 0; color: #667eea;">Sample Gallery</h3>
-                    <div class="gallery-container">
-                        <button class="gallery-nav prev" onclick="nftGallery.previousSlide()" id="prevBtn">‹</button>
-                        <button class="gallery-nav next" onclick="nftGallery.nextSlide()" id="nextBtn">›</button>
-                        <div class="gallery-wrapper">
-                            <div class="sample-gallery" id="sampleGallery">
-                                <div class="gallery-group">
-                                    <a href="https://opensea.io/collection/boredapeyachtclub" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Bored Ape Yacht Club</h4>
-                                        <p>Assets: 10,000</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/mutant-ape-yacht-club" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Mutant Ape Yacht Club</h4>
-                                        <p>Assets: 19,552</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/azuki" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Azuki</h4>
-                                        <p>Assets: 10,000</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/pudgypenguins" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Pudgy Penguins</h4>
-                                        <p>Assets: 8,888</p>
-                                    </a>
-                                </div>
-                                <div class="gallery-group">
-                                    <a href="https://opensea.io/collection/clonex" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>CLONE X - X TAKASHI MURAKAMI</h4>
-                                        <p>Assets: 19,763</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/proof-moonbirds" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Moonbirds</h4>
-                                        <p>Assets: 10,000</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/doodles-official" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Doodles</h4>
-                                        <p>Assets: 10,000</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/bored-ape-kennel-club" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>Bored Ape Kennel Club</h4>
-                                        <p>Assets: 9,602</p>
-                                    </a>
-                                </div>
-                                <div class="gallery-group">
-                                    <a href="https://opensea.io/collection/degods-eth" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>DeGods</h4>
-                                        <p>Assets: 9,004</p>
-                                    </a>
-                                    <a href="https://opensea.io/collection/beanzofficial" target="_blank" class="sample-item">
-                                        <div class="sample-placeholder">
-                                            PFP Collection
-                                            <div class="loading"></div>
-                                        </div>
-                                        <h4>BEANZ Official</h4>
-                                        <p>Assets: 19,950</p>
-                                    </a>
-                                    <div class="sample-item" style="opacity: 0.3; cursor: default; pointer-events: none;">
-                                        <div class="sample-placeholder" style="background: #f8fafc;">
-                                            <span style="color: #ccc;">Coming Soon</span>
-                                        </div>
-                                        <h4 style="color: #ccc;">More Collections</h4>
-                                        <p style="color: #ccc;">-</p>
-                                    </div>
-                                    <div class="sample-item" style="opacity: 0.3; cursor: default; pointer-events: none;">
-                                        <div class="sample-placeholder" style="background: #f8fafc;">
-                                            <span style="color: #ccc;">Coming Soon</span>
-                                        </div>
-                                        <h4 style="color: #ccc;">More Collections</h4>
-                                        <p style="color: #ccc;">-</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gallery-indicators">
-                            <div class="indicator active" onclick="nftGallery.goToSlide(0)"></div>
-                            <div class="indicator" onclick="nftGallery.goToSlide(1)"></div>
-                            <div class="indicator" onclick="nftGallery.goToSlide(2)"></div>
-                        </div>
+                <h3 style="margin: 2rem 0 1rem 0; color: #667eea;">Sample Gallery</h3>
+                <div class="sample-gallery" id="sampleGallery">
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>CryptoPunks</h4>
+                        <p>Assets: 10,000</p>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>Bored Ape Yacht Club</h4>
+                        <p>Assets: 10,000</p>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>Azuki</h4>
+                        <p>Assets: 10,000</p>
+                    </div>
+                    <div class="sample-item">
+                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
+                        <h4>Mutant Ape Yacht Club</h4>
+                        <p>Assets: 19,423</p>
                     </div>
                 </div>
+            </div>
         </section>
 
         <!-- Dataset Description -->
