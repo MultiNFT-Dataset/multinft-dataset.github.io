@@ -324,11 +324,7 @@
         }
 
         .variable-table th:nth-child(3) {
-            width: 40%;
-        }
-
-        .variable-table th:nth-child(4) {
-            width: 28%;
+            width: 68%;
         }
 
         .variable-table td {
@@ -622,7 +618,7 @@
                             <span class="stat-label">Transactions</span>
                         </div>
                         <div class="stat-box">
-                            <span class="stat-number">0.50M</span>
+                            <span class="stat-number">500K</span>
                             <span class="stat-label">NFT Assets</span>
                         </div>
                         <div class="stat-box">
@@ -667,28 +663,10 @@
             <div class="container">
                 <h2>Dataset Description</h2>
                 
-                <div class="dataset-features">
-                    <div class="feature-card">
-                        <h3>📊 50 PFP Collections and Assets Tables</h3>
-                        <p>Comprehensive collection metadata and individual asset information for 50 carefully selected Profile Picture (PFP) collections, including detailed attributes, contract information, and asset-level data.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>🏷️ Attributes</h3>
-                        <p>Detailed trait and attribute data for each NFT asset, including rarity information, trait types, and values essential for market analysis and valuation studies.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>🖼️ Images</h3>
-                        <p>Systematic downloading of asset images via metadata URLs, followed by standardization processing to 224×224 pixel RGB PNG format ensuring consistency for computer vision applications.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>💰 Sales</h3>
-                        <p>Four years of detailed transaction records with comprehensive market information including timestamps, payment tokens, sale prices, and trading party addresses across multiple market cycles.</p>
-                    </div>
-                </div>
-
-                <!-- Subsection 1: 50 PFP Collections and Assets Tables -->
+                <!-- Subsection 1: 50 PFP Collections -->
                 <div class="subsection">
-                    <h3>50 PFP Collections and Assets Tables</h3>
+                    <h3>50 PFP Collections</h3>
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;"><strong>collections.csv</strong> contains basic information for 50 carefully selected PFP collections from OpenSea's top 100 trading volume collections, all created between April 2021 and March 2023. NSFW assets are excluded from the dataset to ensure data quality and compliance.</p>
                     
                     <div class="accordion">
                         <div class="accordion-header" onclick="toggleAccordion('collections-accordion')">
@@ -946,6 +924,12 @@
                             </table>
                         </div>
                     </div>
+                </div>
+
+                <!-- Subsection 2: Assets -->
+                <div class="subsection">
+                    <h3>Assets</h3>
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;"><strong>assets.csv</strong> includes detailed metadata for 523,020 NFT assets from these 50 collections, with all assets having valid image and attribute metadata.</p>
 
                     <div class="accordion">
                         <div class="accordion-header" onclick="toggleAccordion('assets-accordion')">
@@ -1038,21 +1022,74 @@
                     </div>
                 </div>
 
-                <!-- Subsection 2: Attributes -->
+                <!-- Subsection 3: Images & Attributes -->
                 <div class="subsection">
-                    <h3>Attributes</h3>
-                    <p style="color: #666; font-size: 1rem; line-height: 1.6;">Detailed attribute and trait information for each NFT asset will be documented here, including rarity calculations and trait distributions.</p>
-                </div>
-
-                <!-- Subsection 3: Images -->
-                <div class="subsection">
-                    <h3>Images</h3>
-                    <p style="color: #666; font-size: 1rem; line-height: 1.6;">Comprehensive documentation of image processing pipeline and standardization procedures will be provided here.</p>
+                    <h3>Images & Attributes</h3>
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">
+                        The dataset provides a comprehensive collection of NFT visual content and metadata. Each of the 523,020 assets has a corresponding high-quality image and detailed attribute information, enabling both computer vision and structured data analysis. Images are standardized for consistency across all collections, while attributes preserve the unique trait characteristics that define each NFT's rarity and value proposition.
+                    </p>
+                    
+                    <!-- Image and Attributes Example -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin: 2rem 0; padding: 2rem; background: #f8fafc; border-radius: 10px;">
+                        <!-- Image Section -->
+                        <div style="text-align: center;">
+                            <h4 style="color: #667eea; margin-bottom: 1rem;">Sample NFT Image</h4>
+                            <img src="images/boredapeyachtclub/0.png" alt="Bored Ape Yacht Club #0" style="width: 224px; height: 224px; border-radius: 8px; border: 2px solid #e5e7eb; object-fit: cover;">
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">boredapeyachtclub/0.png</p>
+                            <p style="font-size: 0.85rem; color: #888;">224×224 RGB PNG</p>
+                        </div>
+                        
+                        <!-- Attributes Section -->
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 1rem;">Corresponding Attributes</h4>
+                            <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e5e7eb;">
+                                <p style="font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.85rem; color: #666; margin-bottom: 1rem;">boredapeyachtclub_attributes.json</p>
+                                <pre style="font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.8rem; color: #374151; margin: 0; white-space: pre-wrap; line-height: 1.4;">"0": [
+  {
+    "trait_type": "Earring",
+    "value": "Silver Hoop"
+  },
+  {
+    "trait_type": "Background", 
+    "value": "Orange"
+  },
+  {
+    "trait_type": "Fur",
+    "value": "Robot"
+  },
+  {
+    "trait_type": "Clothes",
+    "value": "Striped Tee"
+  },
+  {
+    "trait_type": "Mouth",
+    "value": "Discomfort"
+  },
+  {
+    "trait_type": "Eyes",
+    "value": "X Eyes"
+  }
+]</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- File Structure Information -->
+                    <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #0ea5e9; margin: 2rem 0;">
+                        <h4 style="color: #0369a1; margin-bottom: 1rem;">File Organization</h4>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                            <strong>Images:</strong> Organized by collection in <code style="background: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace;">images/{collection}/{identifier}.png</code> format (e.g., 1.png, 2.png, ...). All images are uniformly processed to 224×224 pixel RGB PNG format for computer vision applications.
+                        </p>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">
+                            <strong>Attributes:</strong> Stored as <code style="background: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace;">attributes/{collection}_attributes.json</code> with structure <code style="background: #e0f2fe; padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace;">{'identifier': [list of trait_types and values], ...}</code> providing trait type and value pairs for each asset.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Subsection 4: Sales -->
                 <div class="subsection">
                     <h3>Sales</h3>
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">Sales data spans four years (May 1, 2021 - April 30, 2025) across all 50 collections. <strong>sales_raw.csv</strong> contains comprehensive transaction records excluding NSFW/disabled assets and zero-price transactions, with buyer/seller addresses encrypted for privacy protection.</p>
                     
                     <div class="accordion">
                         <div class="accordion-header" onclick="toggleAccordion('raw-sales-accordion')">
@@ -1214,6 +1251,8 @@
                         </div>
                     </div>
 
+                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;"><strong>sales_cleaned.csv</strong> filters transactions to four major payment tokens (ETH, WETH, DAI, USDC), removing 97 transactions with other tokens, and integrates Yahoo Finance daily close prices to calculate USD values and logarithmic prices for enhanced price analysis.</p>
+
                     <div class="accordion">
                         <div class="accordion-header" onclick="toggleAccordion('cleaned-sales-accordion')">
                             <h4>Cleaned Sales Table (Added Variables)</h4>
@@ -1226,38 +1265,23 @@
                                         <th>Variable Name</th>
                                         <th>Data Type</th>
                                         <th>Description</th>
-                                        <th>Calculation/Source</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><span class="variable-name">eth_usd_price</span></td>
-                                        <td><span class="data-type">float</span></td>
-                                        <td><span class="description">ETH to USD exchange rate on transaction date</span></td>
-                                        <td><span class="description">External market data (daily close price)</span></td>
-                                    </tr>
-                                    <tr>
                                         <td><span class="variable-name">payment_price</span></td>
                                         <td><span class="data-type">float</span></td>
                                         <td><span class="description">Actual payment amount (quantity ÷ 10^decimals)</span></td>
-                                        <td><span class="description">payment_quantity ÷ (10^payment_decimals)</span></td>
                                     </tr>
                                     <tr>
                                         <td><span class="variable-name">payment_usd_price</span></td>
                                         <td><span class="data-type">float</span></td>
                                         <td><span class="description">Payment amount converted to USD</span></td>
-                                        <td>
-                                            <span class="description">
-                                                <strong>ETH/WETH:</strong> payment_price × eth_usd_price<br>
-                                                <strong>USDC/DAI:</strong> payment_price × 1.0
-                                            </span>
-                                        </td>
                                     </tr>
                                     <tr>
                                         <td><span class="variable-name">log_usd_price</span></td>
                                         <td><span class="data-type">float</span></td>
                                         <td><span class="description">Natural logarithm of USD price</span></td>
-                                        <td><span class="description">ln(payment_usd_price)</span></td>
                                     </tr>
                                 </tbody>
                             </table>
