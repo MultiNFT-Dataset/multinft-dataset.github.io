@@ -181,12 +181,29 @@
             opacity: 0.9;
         }
 
-        /* Sample Gallery */
-        .sample-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        /* Enhanced Sample Gallery */
+        .gallery-container {
+            position: relative;
             margin: 2rem 0;
+        }
+
+        .gallery-wrapper {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .sample-gallery {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+            padding: 0.5rem;
+        }
+
+        .gallery-group {
+            display: flex;
+            gap: 1.5rem;
+            min-width: 100%;
+            flex-shrink: 0;
         }
 
         .sample-item {
@@ -194,13 +211,18 @@
             border-radius: 10px;
             padding: 1rem;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
+            flex: 1;
+            min-width: 200px;
+            text-decoration: none;
+            color: inherit;
         }
 
         .sample-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            border: 2px solid #667eea;
         }
 
         .sample-placeholder {
@@ -214,6 +236,111 @@
             margin-bottom: 1rem;
             color: #64748b;
             font-weight: 500;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .sample-item:hover .collection-image {
+            transform: scale(1.05);
+        }
+
+        .image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #e2e8f0, #cbd5e1);
+            color: #64748b;
+            font-weight: 500;
+            flex-direction: column;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-nav:disabled {
+            background: rgba(102, 126, 234, 0.3);
+            cursor: not-allowed;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .gallery-nav.prev {
+            left: -25px;
+        }
+
+        .gallery-nav.next {
+            right: -25px;
+        }
+
+        .gallery-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #667eea;
+            transform: scale(1.2);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Dataset Description */
@@ -418,6 +545,33 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
+        .zenodo-note {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0ea5e9;
+            margin-bottom: 2rem;
+            color: #0c4a6e;
+        }
+
+        .file-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f0f9ff;
+            color: #0369a1;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            margin: 0.25rem 0;
+            transition: all 0.3s ease;
+            border: 1px solid #0ea5e9;
+        }
+
+        .file-link:hover {
+            background: #0ea5e9;
+            color: white;
+        }
+
         /* Contact Section */
         .contact-info {
             display: grid;
@@ -503,22 +657,6 @@
             padding: 2rem 0;
         }
 
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -569,6 +707,24 @@
 
             .footer-logo {
                 height: 60px;
+            }
+
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .gallery-nav.prev {
+                left: -20px;
+            }
+
+            .gallery-nav.next {
+                right: -20px;
+            }
+
+            .sample-item {
+                min-width: 150px;
             }
         }
     </style>
@@ -633,26 +789,151 @@
                 </div>
 
                 <h3 style="margin: 2rem 0 1rem 0; color: #667eea;">Sample Gallery</h3>
-                <div class="sample-gallery" id="sampleGallery">
-                    <div class="sample-item">
-                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                        <h4>CryptoPunks</h4>
-                        <p>Assets: 10,000</p>
+                <div class="gallery-container">
+                    <button class="gallery-nav prev" onclick="nftGallery.previousSlide()" id="prevBtn">‹</button>
+                    <button class="gallery-nav next" onclick="nftGallery.nextSlide()" id="nextBtn">›</button>
+                    
+                    <div class="gallery-wrapper">
+                        <div class="sample-gallery" id="sampleGallery">
+                            <div class="gallery-group">
+                                <a href="https://opensea.io/collection/boredapeyachtclub" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/boredapeyachtclub.png" alt="Bored Ape Yacht Club" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Bored Ape Yacht Club</h4>
+                                    <p>Assets: 10,000</p>
+                                </a>
+                                <a href="https://opensea.io/collection/mutant-ape-yacht-club" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/mutant-ape-yacht-club.png" alt="Mutant Ape Yacht Club" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Mutant Ape Yacht Club</h4>
+                                    <p>Assets: 19,552</p>
+                                </a>
+                                <a href="https://opensea.io/collection/azuki" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/azuki.png" alt="Azuki" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Azuki</h4>
+                                    <p>Assets: 10,000</p>
+                                </a>
+                                <a href="https://opensea.io/collection/pudgypenguins" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/pudgypenguins.png" alt="Pudgy Penguins" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Pudgy Penguins</h4>
+                                    <p>Assets: 8,888</p>
+                                </a>
+                            </div>
+                            
+                            <div class="gallery-group">
+                                <a href="https://opensea.io/collection/clonex" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/clonex.png" alt="CLONE X - X TAKASHI MURAKAMI" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>CLONE X - X TAKASHI MURAKAMI</h4>
+                                    <p>Assets: 19,763</p>
+                                </a>
+                                <a href="https://opensea.io/collection/proof-moonbirds" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/proof-moonbirds.png" alt="Moonbirds" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Moonbirds</h4>
+                                    <p>Assets: 10,000</p>
+                                </a>
+                                <a href="https://opensea.io/collection/doodles-official" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/doodles-official.png" alt="Doodles" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Doodles</h4>
+                                    <p>Assets: 10,000</p>
+                                </a>
+                                <a href="https://opensea.io/collection/bored-ape-kennel-club" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/bored-ape-kennel-club.png" alt="Bored Ape Kennel Club" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>Bored Ape Kennel Club</h4>
+                                    <p>Assets: 9,602</p>
+                                </a>
+                            </div>
+                            
+                            <div class="gallery-group">
+                                <a href="https://opensea.io/collection/degods-eth" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/degods-eth.png" alt="DeGods" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>DeGods</h4>
+                                    <p>Assets: 9,004</p>
+                                </a>
+                                <a href="https://opensea.io/collection/beanzofficial" target="_blank" class="sample-item">
+                                    <div class="sample-placeholder">
+                                        <img src="images/collection_images/beanzofficial.png" alt="BEANZ Official" class="collection-image" style="display: none;" onload="this.style.display='block'; this.parentElement.querySelector('.image-placeholder').style.display='none';" onerror="this.style.display='none';">
+                                        <div class="image-placeholder">
+                                            PFP Collection
+                                            <div class="loading"></div>
+                                        </div>
+                                    </div>
+                                    <h4>BEANZ Official</h4>
+                                    <p>Assets: 19,950</p>
+                                </a>
+                                <div class="sample-item" style="opacity: 0.3; cursor: default; pointer-events: none;">
+                                    <div class="sample-placeholder" style="background: #f8fafc;">
+                                        <span style="color: #ccc;">Coming Soon</span>
+                                    </div>
+                                    <h4 style="color: #ccc;">More Collections</h4>
+                                    <p style="color: #ccc;">-</p>
+                                </div>
+                                <div class="sample-item" style="opacity: 0.3; cursor: default; pointer-events: none;">
+                                    <div class="sample-placeholder" style="background: #f8fafc;">
+                                        <span style="color: #ccc;">Coming Soon</span>
+                                    </div>
+                                    <h4 style="color: #ccc;">More Collections</h4>
+                                    <p style="color: #ccc;">-</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sample-item">
-                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                        <h4>Bored Ape Yacht Club</h4>
-                        <p>Assets: 10,000</p>
-                    </div>
-                    <div class="sample-item">
-                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                        <h4>Azuki</h4>
-                        <p>Assets: 10,000</p>
-                    </div>
-                    <div class="sample-item">
-                        <div class="sample-placeholder">PFP Collection <div class="loading"></div></div>
-                        <h4>Mutant Ape Yacht Club</h4>
-                        <p>Assets: 19,423</p>
+                    
+                    <div class="gallery-indicators">
+                        <div class="indicator active" onclick="nftGallery.goToSlide(0)"></div>
+                        <div class="indicator" onclick="nftGallery.goToSlide(1)"></div>
+                        <div class="indicator" onclick="nftGallery.goToSlide(2)"></div>
                     </div>
                 </div>
             </div>
@@ -1291,7 +1572,7 @@
             </div>
         </section>
 
-<!-- Download Section -->
+        <!-- Download Section -->
         <section id="download" class="section">
             <div class="container">
                 <h2>Download</h2>
@@ -1396,7 +1677,77 @@
     </footer>
 
     <script>
+        const nftGallery = {
+            currentSlide: 0,
+            totalSlides: 3,
+
+            init: function() {
+                this.updateNavButtons();
+                this.addKeyboardListeners();
+            },
+
+            nextSlide: function() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.currentSlide++;
+                    this.updateGallery();
+                }
+            },
+
+            previousSlide: function() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.updateGallery();
+                }
+            },
+
+            goToSlide: function(slideIndex) {
+                this.currentSlide = slideIndex;
+                this.updateGallery();
+            },
+
+            updateGallery: function() {
+                const gallery = document.getElementById('sampleGallery');
+                const translateX = -this.currentSlide * 100;
+                gallery.style.transform = 'translateX(' + translateX + '%)';
+                
+                this.updateNavButtons();
+                this.updateIndicators();
+            },
+
+            updateNavButtons: function() {
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                prevBtn.disabled = this.currentSlide === 0;
+                nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+            },
+
+            updateIndicators: function() {
+                const indicators = document.querySelectorAll('.indicator');
+                const self = this;
+                indicators.forEach(function(indicator, index) {
+                    if (index === self.currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            },
+
+            addKeyboardListeners: function() {
+                const self = this;
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'ArrowLeft') {
+                        self.previousSlide();
+                    } else if (event.key === 'ArrowRight') {
+                        self.nextSlide();
+                    }
+                });
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Navigation smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1410,14 +1761,8 @@
                 });
             });
 
-            const sampleItems = document.querySelectorAll('.sample-placeholder');
-            setTimeout(() => {
-                sampleItems.forEach((item, index) => {
-                    const collections = ['CryptoPunks', 'BAYC', 'Azuki', 'MAYC'];
-                    item.innerHTML = `${collections[index]}<br><small>PFP Collection</small>`;
-                    item.style.background = `linear-gradient(45deg, hsl(${index * 60}, 70%, 85%), hsl(${index * 60 + 30}, 70%, 75%))`;
-                });
-            }, 2000);
+            // Initialize gallery
+            nftGallery.init();
         });
 
         // Accordion toggle function
