@@ -726,6 +726,175 @@
             .sample-item {
                 min-width: 150px;
             }
+
+            .architecture-container {
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                padding: 3rem 2rem;
+                border-radius: 15px;
+                margin: 2rem 0;
+                border: 2px solid #e5e7eb;
+            }
+            
+            .architecture-title {
+                text-align: center;
+                font-size: 1.5rem;
+                color: #667eea;
+                margin-bottom: 2rem;
+                font-weight: 600;
+            }
+            
+            /* Three-layer structure */
+            .data-layers {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            .layer {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                padding: 1.5rem;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                position: relative;
+            }
+            
+            .layer-number {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 1.2rem;
+                flex-shrink: 0;
+            }
+            
+            .layer-content {
+                flex: 1;
+            }
+            
+            .layer-main {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .layer-title {
+                font-size: 1.3rem;
+                font-weight: bold;
+                color: #667eea;
+            }
+            
+            .layer-file {
+                background: #f0f9ff;
+                color: #0369a1;
+                padding: 0.4rem 0.8rem;
+                border-radius: 6px;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 0.9rem;
+                border: 1px solid #0ea5e9;
+            }
+            
+            .layer-stats {
+                color: #666;
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .layer-description {
+                color: #555;
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            /* Multimodal Extensions */
+            .multimodal-section {
+                display: flex;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .multimodal-box {
+                flex: 1;
+                background: #f8f4ff;
+                border: 2px dashed #a855f7;
+                border-radius: 8px;
+                padding: 1rem;
+                text-align: center;
+            }
+            
+            /* Connection arrows */
+            .layer:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                bottom: -1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-top: 20px solid #667eea;
+                z-index: 10;
+            }
+            
+            /* Key relationships */
+            .relationships {
+                display: flex;
+                justify-content: space-around;
+                margin: 2rem 0;
+                padding: 1.5rem;
+                background: white;
+                border-radius: 10px;
+                border: 2px solid #e5e7eb;
+            }
+            
+            .relationship-item {
+                text-align: center;
+                flex: 1;
+            }
+            
+            .relationship-key {
+                background: #667eea;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: bold;
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+            
+            .relationship-desc {
+                font-size: 0.9rem;
+                color: #666;
+            }
+            
+            /* Responsive for architecture */
+            @media (max-width: 768px) {
+                .layer-main {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 0.5rem;
+                }
+            
+                .multimodal-section {
+                    flex-direction: column;
+                }
+            
+                .relationships {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
         }
     </style>
 </head>
@@ -1424,6 +1593,108 @@
         <section id="dataset" class="section">
             <div class="container">
                 <h2>Dataset Description</h2>
+                <div class="architecture-container">
+                    <div class="architecture-title">
+                        📊 Hierarchical Multimodal Data Structure
+                    </div>
+                    
+                    <div class="data-layers">
+                        <!-- Layer 1: Collections -->
+                        <div class="layer">
+                            <div class="layer-number">1</div>
+                            <div class="layer-content">
+                                <div class="layer-main">
+                                    <div class="layer-title">Collections</div>
+                                    <div class="layer-file">collections.csv</div>
+                                </div>
+                                <div class="layer-stats">50 PFP Collections • Collection Metadata</div>
+                                <div class="layer-description">
+                                    Foundation layer containing basic information for 50 carefully selected PFP collections from OpenSea's top trading volume, including metadata, contracts, and collection-level statistics.
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Layer 2: Assets -->
+                        <div class="layer">
+                            <div class="layer-number">2</div>
+                            <div class="layer-content">
+                                <div class="layer-main">
+                                    <div class="layer-title">NFT Assets</div>
+                                    <div class="layer-file">assets.csv</div>
+                                </div>
+                                <div class="layer-stats">523,020 Individual NFTs • Asset Metadata</div>
+                                <div class="layer-description">
+                                    Individual NFT metadata for all assets across collections, each linked to its parent collection via <strong>collection</strong> field.
+                                </div>
+                                
+                                <!-- Multimodal Extensions for Assets -->
+                                <div class="multimodal-section">
+                                    <div class="multimodal-box">
+                                        <div style="text-align: center;">
+                                            <div style="font-weight: bold; color: #a855f7; font-size: 0.9rem; margin-bottom: 0.8rem;">🖼️ Images</div>
+                                            <div style="font-size: 0.8rem; color: #666; margin-bottom: 1rem;">images/{collection}/{id}.png<br>224×224 RGB</div>
+                                            <div style="width: 100px; height: 100px; background: linear-gradient(45deg, #e2e8f0, #cbd5e1); border-radius: 6px; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: #64748b; font-weight: 500; font-size: 0.8rem;">
+                                                224×224
+                                            </div>
+                                            <div style="font-size: 0.7rem; color: #666; margin-top: 0.5rem;">boredapeyachtclub/0.png</div>
+                                        </div>
+                                    </div>
+                                    <div class="multimodal-box">
+                                        <div>
+                                            <div style="font-weight: bold; color: #a855f7; font-size: 0.9rem; margin-bottom: 0.8rem; text-align: center;">🏷️ Attributes</div>
+                                            <div style="font-size: 0.8rem; color: #666; margin-bottom: 1rem; text-align: center;">attributes/{collection}_attributes.json<br>Trait data</div>
+                                            <pre style="font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.65rem; color: #374151; margin: 0; white-space: pre-wrap; line-height: 1.2; background: rgba(248,250,252,0.9); padding: 0.8rem; border-radius: 4px;">"0": [
+                  {
+                    "trait_type": "Earring",
+                    "value": "Silver Hoop"
+                  },
+                  {
+                    "trait_type": "Background", 
+                    "value": "Orange"
+                  },
+                  {
+                    "trait_type": "Fur",
+                    "value": "Robot"
+                  }
+                ]</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Layer 3: Sales -->
+                        <div class="layer">
+                            <div class="layer-number">3</div>
+                            <div class="layer-content">
+                                <div class="layer-main">
+                                    <div class="layer-title">Transactions</div>
+                                    <div class="layer-file">sales_raw.csv / sales_cleaned.csv</div>
+                                </div>
+                                <div class="layer-stats">2.38M Transactions • 4 Years (2021-2025)</div>
+                                <div class="layer-description">
+                                    Complete transaction records linked to assets via <strong>(nft_collection, nft_identifier)</strong>. Cleaned version includes USD conversion and filtered payment tokens.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Key Relationships -->
+                    <div class="relationships">
+                        <div class="relationship-item">
+                            <div class="relationship-key">collection</div>
+                            <div class="relationship-desc">Collections ↔ Assets<br>1:many relationship</div>
+                        </div>
+                        <div class="relationship-item">
+                            <div class="relationship-key">(collection, identifier)</div>
+                            <div class="relationship-desc">Assets ↔ Sales<br>1:many relationship</div>
+                        </div>
+                        <div class="relationship-item">
+                            <div class="relationship-key">(collection, identifier)</div>
+                            <div class="relationship-desc">Assets ↔ Images/Attributes<br>1:1 relationship</div>
+                        </div>
+                    </div>
+                </div>                
                 
                 <!-- Subsection 1: 50 PFP Collections -->
                 <div class="subsection">
