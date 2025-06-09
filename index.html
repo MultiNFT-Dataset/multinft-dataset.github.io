@@ -515,6 +515,10 @@
             padding: 2rem;
             text-align: center;
             transition: border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
         }
 
         .download-card:hover {
@@ -556,20 +560,15 @@
 
         .file-link {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #f0f9ff;
             color: #0369a1;
-            text-decoration: none;
-            border-radius: 5px;
+            text-decoration: underline;
             font-weight: 500;
-            margin: 0.25rem 0;
-            transition: all 0.3s ease;
-            border: 1px solid #0ea5e9;
+            margin: 0.25rem 0.5rem;
+            transition: color 0.3s ease;
         }
 
         .file-link:hover {
-            background: #0ea5e9;
-            color: white;
+            color: #1d4ed8;
         }
 
         /* Contact Section */
@@ -1753,7 +1752,7 @@
                         <h3>Collections & Assets</h3>
                         <p>Basic information for 50 PFP collections and metadata for 523,020 NFT assets.</p>
                         <p><strong>Click to download:</strong></p>
-                        <div style="text-align: center;">
+                        <div style="text-align: center; margin-top: auto;">
                             <a href="https://zenodo.org/record/15611823/files/collections.csv?download=1" target="_blank" class="file-link">collections.csv</a><br>
                             <a href="https://zenodo.org/record/15611823/files/assets.csv?download=1" target="_blank" class="file-link">assets.csv</a>
                         </div>
@@ -1763,7 +1762,7 @@
                         <h3>Sales</h3>
                         <p>Four years of transaction records with raw and cleaned versions for analysis.</p>
                         <p><strong>Click to download:</strong></p>
-                        <div style="text-align: center;">
+                        <div style="text-align: center; margin-top: auto;">
                             <a href="https://zenodo.org/record/15611823/files/sales_raw.csv?download=1" target="_blank" class="file-link">sales_raw.csv</a><br>
                             <a href="https://zenodo.org/record/15611823/files/sales_cleaned.csv?download=1" target="_blank" class="file-link">sales_cleaned.csv</a>
                         </div>
@@ -1773,7 +1772,7 @@
                         <h3>Images & Attributes</h3>
                         <p>523,020 standardized images (224×224 PNG) and corresponding trait attribute data.</p>
                         <p><strong>Click to download:</strong></p>
-                        <div style="text-align: center;">
+                        <div style="text-align: center; margin-top: auto;">
                             <a href="https://zenodo.org/record/15611823/files/images.zip?download=1" target="_blank" class="file-link">images.zip</a><br>
                             <a href="https://zenodo.org/record/15611823/files/attributes.zip?download=1" target="_blank" class="file-link">attributes.zip</a>
                         </div>
