@@ -969,6 +969,7 @@
     </head>
 
     <body>
+
         <!-- Header Navigation -->
         <header>
             <div class="nav-container">
@@ -2205,18 +2206,18 @@
                                                         data</div>
                                                     <pre
                                                         style="font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.65rem; color: #374151; margin: 0; white-space: pre-wrap; line-height: 1.2; background: rgba(248,250,252,0.9); padding: 0.8rem; border-radius: 4px; text-align: left;">"0": [
-  {
-    "trait_type": "Earring",
-    "value": "Silver Hoop"
-  },
-  {
-    "trait_type": "Background", 
-    "value": "Orange"
-  },
-  {
-    "trait_type": "Fur",
-    "value": "Robot"
-  }
+{
+"trait_type": "Earring",
+"value": "Silver Hoop"
+},
+{
+"trait_type": "Background", 
+"value": "Orange"
+},
+{
+"trait_type": "Fur",
+"value": "Robot"
+}
 ]</pre>
                                                 </div>
                                             </div>
@@ -2558,10 +2559,10 @@
                                                         chains</span></td>
                                             </tr>
                                             <!-- <tr>
-                                        <td><span class="variable-name">editors</span></td>
-                                        <td><span class="data-type">array</span></td>
-                                        <td><span class="description">List of editor addresses for the collection</span></td>
-                                    </tr> -->
+                                    <td><span class="variable-name">editors</span></td>
+                                    <td><span class="data-type">array</span></td>
+                                    <td><span class="description">List of editor addresses for the collection</span></td>
+                                </tr> -->
                                             <tr>
                                                 <td>
                                                     <span
@@ -2621,10 +2622,10 @@
                                                         to false)</span></td>
                                             </tr>
                                             <!-- <tr>
-                                        <td><span class="variable-name">required_zone</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">If defined, the required zone for all orders for this collection</span></td>
-                                    </tr> -->
+                                    <td><span class="variable-name">required_zone</span></td>
+                                    <td><span class="data-type">string</span></td>
+                                    <td><span class="description">If defined, the required zone for all orders for this collection</span></td>
+                                </tr> -->
                                             <tr>
                                                 <td>
                                                     <span
@@ -3402,211 +3403,6 @@
                     </div>
                 </section>
 
-                <!--
-                <div class="subsection">
-                    <h3>Sales</h3>
-                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">Sales data spans 54 months (April 17, 2021 - September 30, 2025) across all 50 collections. <strong>sales.csv</strong> contains comprehensive transaction records with integrated USD prices and market context variables.</p>
-                    
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion('raw-sales-accordion')">
-                            <h4>Raw Sales Table</h4>
-                            <span class="accordion-toggle" id="raw-sales-toggle">▼</span>
-                        </div>
-                        <div class="accordion-content" id="raw-sales-accordion">
-                            <table class="variable-table">
-                                <thead>
-                                    <tr>
-                                        <th>Variable Name</th>
-                                        <th>Data Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="variable-name">event_type</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Defaults to 'sale'</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">order_hash</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Order hash for the order which was fulfilled</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">chain</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">OpenSea supported chains</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">protocol_address</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Exchange contract address which fulfilled the order</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">closing_date</span></td>
-                                        <td><span class="data-type">datetime</span></td>
-                                        <td><span class="description">Posix timestamp converted to datetime</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_identifier</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">The NFT's unique identifier (token_id)</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_collection</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Collection slug</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_contract</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Public blockchain address of the contract</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_token_standard</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">ERC standard (erc721, erc1155)</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_name</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Name of the NFT</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_description</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Description of the NFT</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_image_url</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Link to the image</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_display_image_url</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Link to displayed image</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_display_animation_url</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Link to displayed animation</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_metadata_url</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Link to offchain metadata</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_opensea_url</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Link to NFT on OpenSea</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_updated_at</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Last metadata update time</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_is_disabled</span></td>
-                                        <td><span class="data-type">boolean</span></td>
-                                        <td><span class="description">If item can be bought/sold</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">nft_is_nsfw</span></td>
-                                        <td><span class="data-type">boolean</span></td>
-                                        <td><span class="description">If classified as NSFW</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">quantity</span></td>
-                                        <td><span class="data-type">integer</span></td>
-                                        <td><span class="description">Number of assets transferred</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">seller</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Seller of the NFT</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">buyer</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Buyer of the NFT</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">payment_quantity</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Amount of tokens in the order</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">payment_token_address</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Contract address for ERC20 token</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">payment_decimals</span></td>
-                                        <td><span class="data-type">integer</span></td>
-                                        <td><span class="description">Number of decimals the token uses</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">payment_symbol</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Symbol of the token (ETH, WETH, etc.)</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">transaction</span></td>
-                                        <td><span class="data-type">string</span></td>
-                                        <td><span class="description">Transaction hash</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">event_timestamp</span></td>
-                                        <td><span class="data-type">datetime</span></td>
-                                        <td><span class="description">Posix timestamp converted to datetime</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;"><strong>sales_cleaned.csv</strong> filters transactions to four major payment tokens (ETH, WETH, DAI, USDC), removing 97 transactions with other tokens, and integrates Yahoo Finance daily close prices to calculate USD values and logarithmic prices for enhanced price analysis.</p>
-
-                    <div class="accordion">
-                        <div class="accordion-header" onclick="toggleAccordion('cleaned-sales-accordion')">
-                            <h4>Cleaned Sales Table (Added Variables)</h4>
-                            <span class="accordion-toggle" id="cleaned-sales-toggle">▼</span>
-                        </div>
-                        <div class="accordion-content" id="cleaned-sales-accordion">
-                            <table class="variable-table">
-                                <thead>
-                                    <tr>
-                                        <th>Variable Name</th>
-                                        <th>Data Type</th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="variable-name">payment_price</span></td>
-                                        <td><span class="data-type">float</span></td>
-                                        <td><span class="description">Actual payment amount (quantity ÷ 10^decimals)</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">payment_usd_price</span></td>
-                                        <td><span class="data-type">float</span></td>
-                                        <td><span class="description">Payment amount converted to USD</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="variable-name">log_usd_price</span></td>
-                                        <td><span class="data-type">float</span></td>
-                                        <td><span class="description">Natural logarithm of USD price</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
                 <!-- Download Section -->
                 <section id="download" class="section">
                     <div class="container">
@@ -3694,13 +3490,7 @@
                                     Dataset</a>
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                <!-- Paper Section -->
-                <section id="paper" class="section">
-                    <div class="container">
-                        <h2>Citation</h2>
                         <div class="contact-item">
                             <strong><span
                                     class="corresponding-badge">IMPORTANT</span>
@@ -3709,8 +3499,8 @@
                                 purposes. If you use this dataset in your
                                 research, please cite it using the following
                                 reference. Thanks!</strong>
-
                         </div>
+
                         <div class="contact-item">
                             <p>Shuying Liu, Bowei Chen, Cathy Yi-Hsuan Chen, Yu
                                 Zheng, Jun Wang, MultiNFT: A multimodal dataset
@@ -3722,292 +3512,303 @@
                             <a class=pdflink target="_blank"
                                 href="BigData_2025_MultiNFT.pdf"><img
                                     src="pdf_icon.png" alt="pdf"
-                                    height="46"/></a>
+                                    height="46" /></a>
                         </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Contact Section -->
-            <section id="contact" class="section">
-                <div class="container">
-                    <h2>Contact</h2>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-left">
-                                <div class="contact-name">
-                                    Shuying Liu
-                                    <span
-                                        class="corresponding-badge">CORRESPONDING</span>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="section">
+                    <div class="container">
+                        <h2>Contact</h2>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-left">
+                                    <div class="contact-name">
+                                        Shuying Liu
+                                        <span
+                                            class="corresponding-badge">CORRESPONDING</span>
+                                    </div>
+                                    <a href="mailto:2595459L@student.gla.ac.uk"
+                                        class="contact-email">2595459L@student.gla.ac.uk</a>
                                 </div>
-                                <a href="mailto:2595459L@student.gla.ac.uk"
-                                    class="contact-email">2595459L@student.gla.ac.uk</a>
-                            </div>
-                            <div class="contact-affiliation">
-                                <div class="contact-university">University of
-                                    Glasgow</div>
-                                <div class="contact-school">Adam Smith Business
-                                    School</div>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-left">
-                                <div class="contact-name">
-                                    Bowei Chen
-                                    <span
-                                        class="corresponding-badge">CORRESPONDING</span>
+                                <div class="contact-affiliation">
+                                    <div class="contact-university">University
+                                        of
+                                        Glasgow</div>
+                                    <div class="contact-school">Adam Smith
+                                        Business
+                                        School</div>
                                 </div>
-                                <a href="mailto:bowei.chen@glasgow.ac.uk"
-                                    class="contact-email">bowei.chen@glasgow.ac.uk</a>
                             </div>
-                            <div class="contact-affiliation">
-                                <div class="contact-university">University of
-                                    Glasgow</div>
-                                <div class="contact-school">Adam Smith Business
-                                    School</div>
-                            </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-left">
-                                <div class="contact-name">Cathy Yi-Hsuan
-                                    Chen</div>
-                                <a
-                                    href="mailto:CathyYi-Hsuan.Chen@glasgow.ac.uk"
-                                    class="contact-email">CathyYi-Hsuan.Chen@glasgow.ac.uk</a>
+                            <div class="contact-item">
+                                <div class="contact-left">
+                                    <div class="contact-name">
+                                        Bowei Chen
+                                        <span
+                                            class="corresponding-badge">CORRESPONDING</span>
+                                    </div>
+                                    <a href="mailto:bowei.chen@glasgow.ac.uk"
+                                        class="contact-email">bowei.chen@glasgow.ac.uk</a>
+                                </div>
+                                <div class="contact-affiliation">
+                                    <div class="contact-university">University
+                                        of
+                                        Glasgow</div>
+                                    <div class="contact-school">Adam Smith
+                                        Business
+                                        School</div>
+                                </div>
                             </div>
-                            <div class="contact-affiliation">
-                                <div class="contact-university">University of
-                                    Glasgow</div>
-                                <div class="contact-school">Adam Smith Business
-                                    School</div>
-                            </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-left">
-                                <div class="contact-name">Yu Zheng</div>
-                                <a href="mailto:zhengyu@swufe.edu.cn"
-                                    class="contact-email">zhengyu@swufe.edu.cn</a>
+                            <div class="contact-item">
+                                <div class="contact-left">
+                                    <div class="contact-name">Cathy Yi-Hsuan
+                                        Chen</div>
+                                    <a
+                                        href="mailto:CathyYi-Hsuan.Chen@glasgow.ac.uk"
+                                        class="contact-email">CathyYi-Hsuan.Chen@glasgow.ac.uk</a>
+                                </div>
+                                <div class="contact-affiliation">
+                                    <div class="contact-university">University
+                                        of
+                                        Glasgow</div>
+                                    <div class="contact-school">Adam Smith
+                                        Business
+                                        School</div>
+                                </div>
                             </div>
-                            <div class="contact-affiliation">
-                                <div class="contact-university">Southwestern
-                                    University of Finance and Economics</div>
-                                <div class="contact-school">School of
-                                    Finance</div>
-                            </div>
-                        </div>
 
-                        <div class="contact-item">
-                            <div class="contact-left">
-                                <div class="contact-name">Jun Wang</div>
-                                <a href="mailto:jun.wang@cs.ucl.ac.uk"
-                                    class="contact-email">jun.wang@cs.ucl.ac.uk</a>
+                            <div class="contact-item">
+                                <div class="contact-left">
+                                    <div class="contact-name">Yu Zheng</div>
+                                    <a href="mailto:zhengyu@swufe.edu.cn"
+                                        class="contact-email">zhengyu@swufe.edu.cn</a>
+                                </div>
+                                <div class="contact-affiliation">
+                                    <div class="contact-university">Southwestern
+                                        University of Finance and
+                                        Economics</div>
+                                    <div class="contact-school">School of
+                                        Finance</div>
+                                </div>
                             </div>
-                            <div class="contact-affiliation">
-                                <div class="contact-university">University
-                                    College London</div>
-                                <div class="contact-school">Department of
-                                    Computer Science</div>
+
+                            <div class="contact-item">
+                                <div class="contact-left">
+                                    <div class="contact-name">Jun Wang</div>
+                                    <a href="mailto:jun.wang@cs.ucl.ac.uk"
+                                        class="contact-email">jun.wang@cs.ucl.ac.uk</a>
+                                </div>
+                                <div class="contact-affiliation">
+                                    <div class="contact-university">University
+                                        College London</div>
+                                    <div class="contact-school">Department of
+                                        Computer Science</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
+                </section>
 
-        <footer>
-            <!-- White Background Section - University Logos and License -->
-            <div class="footer-white-section">
-                <div class="container">
-                    <!-- University Logos -->
-                    <div class="footer-logos">
-                        <!-- University of Glasgow Logo -->
-                        <img src="images/uog.png" alt="University of Glasgow"
-                            class="footer-logo">
+            </main>
 
-                        <!-- Southwestern University of Finance and Economics Logo -->
-                        <img
-                            src="images/southwestern university of finance and economics_logo.png"
-                            alt="Southwestern University of Finance and Economics"
-                            class="footer-logo">
+            <footer>
+                <!-- White Background Section - University Logos and License -->
+                <div class="footer-white-section">
+                    <div class="container">
+                        <!-- University Logos -->
+                        <div class="footer-logos">
+                            <!-- University of Glasgow Logo -->
+                            <img src="images/uog.png"
+                                alt="University of Glasgow"
+                                class="footer-logo">
 
-                        <!-- University College London Logo -->
-                        <img src="images/university college london_logo.png"
-                            alt="University College London" class="footer-logo">
+                            <!-- Southwestern University of Finance and Economics Logo -->
+                            <img
+                                src="images/southwestern university of finance and economics_logo.png"
+                                alt="Southwestern University of Finance and Economics"
+                                class="footer-logo">
 
+                            <!-- University College London Logo -->
+                            <img src="images/university college london_logo.png"
+                                alt="University College London"
+                                class="footer-logo">
+
+                        </div>
+
+                        <!-- Creative Commons License -->
+                        <div class="footer-license">
+                            <!-- CC BY-NC 4.0 Logo from official source -->
+                            <img
+                                src="https://licensebuttons.net/l/by-nc/4.0/88x31.png"
+                                alt="Creative Commons BY-NC 4.0"
+                                class="cc-license-logo">
+
+                            <p class="license-text">
+                                Licensed under CC BY-NC 4.0
+                            </p>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Creative Commons License -->
-                    <div class="footer-license">
-                        <!-- CC BY-NC 4.0 Logo from official source -->
-                        <img
-                            src="https://licensebuttons.net/l/by-nc/4.0/88x31.png"
-                            alt="Creative Commons BY-NC 4.0"
-                            class="cc-license-logo">
-
-                        <p class="license-text">
-                            Licensed under CC BY-NC 4.0
-                        </p>
+                <!-- Purple Background Section - Copyright -->
+                <div class="footer-purple-section">
+                    <div class="container">
+                        <p>&copy; 2025 MultiNFT Dataset. For academic research
+                            purposes.</p>
                     </div>
                 </div>
-            </div>
+            </footer>
 
-            <!-- Purple Background Section - Copyright -->
-            <div class="footer-purple-section">
-                <div class="container">
-                    <p>&copy; 2025 MultiNFT Dataset. For academic research
-                        purposes.</p>
-                </div>
-            </div>
-        </footer>
+            <script>
+            const nftGallery = {
+                currentSlide: 0,
+                totalSlides: 13, // Updated to 13 since we only have 13 gallery groups now
 
-        <script>
-        const nftGallery = {
-            currentSlide: 0,
-            totalSlides: 13, // Updated to 13 since we only have 13 gallery groups now
+                init: function() {
+                    this.updateNavButtons();
+                    this.addKeyboardListeners();
+                },
 
-            init: function() {
-                this.updateNavButtons();
-                this.addKeyboardListeners();
-            },
+                nextSlide: function() {
+                    if (this.currentSlide < this.totalSlides - 1) {
+                        this.currentSlide++;
+                        this.updateGallery();
+                    }
+                },
 
-            nextSlide: function() {
-                if (this.currentSlide < this.totalSlides - 1) {
-                    this.currentSlide++;
+                previousSlide: function() {
+                    if (this.currentSlide > 0) {
+                        this.currentSlide--;
+                        this.updateGallery();
+                    }
+                },
+
+                goToSlide: function(slideIndex) {
+                    this.currentSlide = slideIndex;
                     this.updateGallery();
+                },
+
+                updateGallery: function() {
+                    const gallery = document.getElementById('sampleGallery');
+                    const translateX = -this.currentSlide * 100;
+                    gallery.style.transform = 'translateX(' + translateX + '%)';
+                    
+                    this.updateNavButtons();
+                    this.updateIndicators();
+                },
+
+                updateNavButtons: function() {
+                    const prevBtn = document.getElementById('prevBtn');
+                    const nextBtn = document.getElementById('nextBtn');
+                    
+                    prevBtn.disabled = this.currentSlide === 0;
+                    nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+                },
+
+                updateIndicators: function() {
+                    const indicators = document.querySelectorAll('.indicator');
+                    const self = this;
+                    indicators.forEach(function(indicator, index) {
+                        if (index === self.currentSlide) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                },
+
+                addKeyboardListeners: function() {
+                    const self = this;
+                    document.addEventListener('keydown', function(event) {
+                        if (event.key === 'ArrowLeft') {
+                            self.previousSlide();
+                        } else if (event.key === 'ArrowRight') {
+                            self.nextSlide();
+                        }
+                    });
                 }
-            },
+            };
 
-            previousSlide: function() {
-                if (this.currentSlide > 0) {
-                    this.currentSlide--;
-                    this.updateGallery();
-                }
-            },
-
-            goToSlide: function(slideIndex) {
-                this.currentSlide = slideIndex;
-                this.updateGallery();
-            },
-
-            updateGallery: function() {
-                const gallery = document.getElementById('sampleGallery');
-                const translateX = -this.currentSlide * 100;
-                gallery.style.transform = 'translateX(' + translateX + '%)';
-                
-                this.updateNavButtons();
-                this.updateIndicators();
-            },
-
-            updateNavButtons: function() {
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                
-                prevBtn.disabled = this.currentSlide === 0;
-                nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
-            },
-
-            updateIndicators: function() {
-                const indicators = document.querySelectorAll('.indicator');
-                const self = this;
-                indicators.forEach(function(indicator, index) {
-                    if (index === self.currentSlide) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
-                    }
+            document.addEventListener('DOMContentLoaded', function() {
+                // Navigation smooth scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
                 });
-            },
 
-            addKeyboardListeners: function() {
-                const self = this;
-                document.addEventListener('keydown', function(event) {
-                    if (event.key === 'ArrowLeft') {
-                        self.previousSlide();
-                    } else if (event.key === 'ArrowRight') {
-                        self.nextSlide();
-                    }
-                });
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Navigation smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
+                // Initialize gallery
+                nftGallery.init();
             });
 
-            // Initialize gallery
-            nftGallery.init();
-        });
-
-        // Accordion toggle function
-        function toggleAccordion(accordionId) {
-            const content = document.getElementById(accordionId);
-            const toggle = document.getElementById(accordionId.replace('-accordion', '-toggle'));
-            
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                toggle.classList.remove('active');
-            } else {
-                content.classList.add('active');
-                toggle.classList.add('active');
-            }
-        }
-
-        // Nested table toggle function
-        function toggleNestedRows(groupName) {
-            const nestedRows = document.querySelectorAll(`.${groupName}-nested`);
-            const button = event.target;
-            
-            let isVisible = false;
-            nestedRows.forEach(row => {
-                if (row.style.display !== 'none') {
-                    isVisible = true;
+            // Accordion toggle function
+            function toggleAccordion(accordionId) {
+                const content = document.getElementById(accordionId);
+                const toggle = document.getElementById(accordionId.replace('-accordion', '-toggle'));
+                
+                if (content.classList.contains('active')) {
+                    content.classList.remove('active');
+                    toggle.classList.remove('active');
+                } else {
+                    content.classList.add('active');
+                    toggle.classList.add('active');
                 }
-            });
-            
-            if (isVisible) {
-                nestedRows.forEach(row => {
-                    row.style.display = 'none';
-                });
-                button.innerHTML = '▼';
-            } else {
-                nestedRows.forEach(row => {
-                    row.style.display = 'table-row';
-                });
-                button.innerHTML = '▲';
             }
-        }
-    </script>
 
-        <!-- Default Statcounter code for MultiNFT https://multinft-dataset.github.io/ -->
-        <script type="text/javascript">
+            // Nested table toggle function
+            function toggleNestedRows(groupName) {
+                const nestedRows = document.querySelectorAll(`.${groupName}-nested`);
+                const button = event.target;
+                
+                let isVisible = false;
+                nestedRows.forEach(row => {
+                    if (row.style.display !== 'none') {
+                        isVisible = true;
+                    }
+                });
+                
+                if (isVisible) {
+                    nestedRows.forEach(row => {
+                        row.style.display = 'none';
+                    });
+                    button.innerHTML = '▼';
+                } else {
+                    nestedRows.forEach(row => {
+                        row.style.display = 'table-row';
+                    });
+                    button.innerHTML = '▲';
+                }
+            }
+        </script>
+
+            <!-- Default Statcounter code for MultiNFT https://multinft-dataset.github.io/ -->
+            <script type="text/javascript">
     var sc_project=13142705; 
     var sc_invisible=1; 
     var sc_security="5873e200"; 
     </script>
-        <script type="text/javascript"
-            src="https://www.statcounter.com/counter/counter.js"
-            async></script>
-        <noscript><div class="statcounter"><a title="Web Analytics
+            <script type="text/javascript"
+                src="https://www.statcounter.com/counter/counter.js"
+                async></script>
+            <noscript><div class="statcounter"><a title="Web Analytics
     Made Easy - Statcounter" href="https://statcounter.com/"
-                    target="_blank"><img class="statcounter"
-                        src="https://c.statcounter.com/13142705/0/5873e200/1/"
-                        alt="Web Analytics Made Easy - Statcounter"
-                        referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-        <!-- End of Statcounter Code -->
+                        target="_blank"><img class="statcounter"
+                            src="https://c.statcounter.com/13142705/0/5873e200/1/"
+                            alt="Web Analytics Made Easy - Statcounter"
+                            referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+            <!-- End of Statcounter Code -->
 
-    </body>
-</html>
+        </body>
+
+    </html>
